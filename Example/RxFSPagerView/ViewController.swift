@@ -26,10 +26,15 @@ class ViewController: UIViewController {
         pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
         view.addSubview(pagerView)
         
-        Driver.of(["0", "1", "2", "3"]).drive(pagerView.rx.items(cellIdentifier: "FSPagerViewCell"))
+        let pageControl = FSPageControl(frame: CGRect(x: 0, y: view.bounds.height - 60, width: view.bounds.width, height: 30))
+        view.addSubview(pageControl)
+        
+        let items = Driver.of(["0", "1", "2", "3"])
+        items.drive(pagerView.rx.items(cellIdentifier: "FSPagerViewCell"))
         { _, item, cell in
             cell.imageView?.image = #imageLiteral(resourceName: "Image")
         }.disposed(by: disposeBag)
+        items.map({ $0.count }).drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
         
         pagerView.rx.itemSelected.subscribe(onNext: { index in
             debugPrint(index)
@@ -38,6 +43,8 @@ class ViewController: UIViewController {
         pagerView.rx.modelSelected(String.self).subscribe(onNext: { text in
             debugPrint(text)
         }).disposed(by: disposeBag)
+        
+        pagerView.rx.itemScroll.asDriver().drive(pageControl.rx.currentPage).disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {

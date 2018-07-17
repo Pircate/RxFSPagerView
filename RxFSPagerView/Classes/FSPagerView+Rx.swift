@@ -46,6 +46,18 @@ public extension Reactive where Base: FSPagerView {
         }
         return ControlEvent(events: source)
     }
+    
+    var itemScroll: ControlEvent<Int> {
+        let source = base.collectionView.rx.didScroll.map({ _ -> Int in
+            guard self.base.numberOfSections > 0 else { return 0 }
+            let currentIndex = lround(Double(self.base.scrollOffset)) % self.base.numberOfSections
+            if currentIndex != self.base.currentIndex {
+                self.base.currentIndex = currentIndex
+            }
+            return self.base.currentIndex
+        })
+        return ControlEvent(events: source)
+    }
 }
 
 fileprivate func castOrThrow<T>(_ resultType: T.Type, _ object: Any) throws -> T {
