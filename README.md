@@ -1,6 +1,6 @@
 # RxFSPagerView
 
-[![CI Status](https://img.shields.io/travis/MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=/RxFSPagerView.svg?style=flat)](https://travis-ci.org/MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=/RxFSPagerView)
+[![CI Status](https://img.shields.io/travis/Pircate/RxFSPagerView.svg?style=flat)](https://travis-ci.org/Pircate/RxFSPagerView)
 [![Version](https://img.shields.io/cocoapods/v/RxFSPagerView.svg?style=flat)](https://cocoapods.org/pods/RxFSPagerView)
 [![License](https://img.shields.io/cocoapods/l/RxFSPagerView.svg?style=flat)](https://cocoapods.org/pods/RxFSPagerView)
 [![Platform](https://img.shields.io/cocoapods/p/RxFSPagerView.svg?style=flat)](https://cocoapods.org/pods/RxFSPagerView)
@@ -22,7 +22,7 @@ pod 'RxFSPagerView'
 
 ## Author
 
-MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=, gao497868860@163.com
+Pircate, gao497868860@163.com
 
 ## License
 

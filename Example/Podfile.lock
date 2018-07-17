@@ -1,16 +1,30 @@
 PODS:
-  - RxFSPagerView (0.1.0)
+  - RxCocoa (4.2.0):
+    - RxSwift (~> 4.0)
+  - RxFSPagerView (0.1.0):
+    - RxCocoa
+    - RxSwift
+  - RxSwift (4.2.0)
 
 DEPENDENCIES:
+  - RxCocoa
   - RxFSPagerView (from `../`)
+  - RxSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxCocoa
+    - RxSwift
 
 EXTERNAL SOURCES:
   RxFSPagerView:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RxFSPagerView: 52f618184b586aa4eb0b4d03ee9ba0c646783a55
+  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
+  RxFSPagerView: 8a2343d784ba3fe1f568ee3e77487aa1b55592b0
+  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: df4b448b1e4208640f7879f224564f2de8de2ac4
+PODFILE CHECKSUM: de9ccf08036394b80fd555e995ed1490bf513eb2
 
 COCOAPODS: 1.5.3

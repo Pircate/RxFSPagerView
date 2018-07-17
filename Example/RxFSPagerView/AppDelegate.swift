@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  RxFSPagerView
 //
-//  Created by MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak= on 07/17/2018.
-//  Copyright (c) 2018 MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=. All rights reserved.
+//  Created by Pircate on 07/17/2018.
+//  Copyright (c) 2018 Pircate. All rights reserved.
 //
 
 import UIKit
