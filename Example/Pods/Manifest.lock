@@ -1,0 +1,16 @@
+PODS:
+  - RxFSPagerView (0.1.0)
+
+DEPENDENCIES:
+  - RxFSPagerView (from `../`)
+
+EXTERNAL SOURCES:
+  RxFSPagerView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RxFSPagerView: 52f618184b586aa4eb0b4d03ee9ba0c646783a55
+
+PODFILE CHECKSUM: df4b448b1e4208640f7879f224564f2de8de2ac4
+
+COCOAPODS: 1.5.3

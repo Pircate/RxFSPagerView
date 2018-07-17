@@ -1,0 +1,22 @@
+{
+  "name": "RxFSPagerView",
+  "version": "0.1.0",
+  "summary": "A short description of RxFSPagerView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=/RxFSPagerView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=": "gao497868860@163.com"
+  },
+  "source": {
+    "git": "https://github.com/MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECMffmNLYI9CgBBgJHH6QBeKgIOVOF4Hsx1RPHTTB44Gdwak=/RxFSPagerView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RxFSPagerView/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module RxFSPagerView {
+  umbrella header "RxFSPagerView-umbrella.h"
+
+  export *
+  module * { export * }
+}
