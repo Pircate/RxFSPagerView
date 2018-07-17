@@ -17,14 +17,12 @@ public extension Reactive where Base: FSPagerView {
         -> Disposable where O.E == S {
             base.collectionView.dataSource = nil
             return { source in
-                let source = source.map({ s -> S in
-                    let items = Array(s)
+                let source = source.map({ sequence -> S in
+                    let items = Array(sequence)
                     self.base.numberOfSections = items.count
                     let max = self.base.isInfinite && (items.count > 1 || !self.base.removesInfiniteLoopForSingleItem) ? Int8.max : 1
                     var actualItems: [S.Element] = []
-                    (0...max - 1).lazy.forEach({ _ in
-                        actualItems += Array(items)
-                    })
+                    (0..<max).lazy.forEach({ _ in actualItems += items })
                     self.base.numberOfItems = actualItems.count
                     return actualItems as! S
                 })
