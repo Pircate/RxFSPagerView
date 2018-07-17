@@ -208,6 +208,7 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     internal var timer: Timer?
     internal var numberOfItems: Int = 0
     internal var numberOfSections: Int = 0
+    internal var currentPage: Int = 0
     
     fileprivate var dequeingSection = 0
     fileprivate var centermostIndexPath: IndexPath {

@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             debugPrint(text)
         }).disposed(by: disposeBag)
         
-        pagerView.rx.itemScroll.asDriver().drive(pageControl.rx.currentPage).disposed(by: disposeBag)
+        pagerView.rx.itemScrolled.asDriver().drive(pageControl.rx.currentPage).disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
