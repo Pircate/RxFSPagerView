@@ -33,18 +33,12 @@ public extension Reactive where Base: FSPagerView {
     }
     
     var itemSelected: ControlEvent<Int> {
-        let source = base.collectionView.rx.delegate
-            .methodInvoked(#selector(UICollectionViewDelegate.collectionView(_:didSelectItemAt:)))
-            .map { return try castOrThrow(IndexPath.self, $0[1]).item % self.base.numberOfSections }
+        let source = base.collectionView.rx.itemSelected.map { $0.item % self.base.numberOfSections }
         return ControlEvent(events: source)
     }
     
     func modelSelected<T>(_ modelType: T.Type) -> ControlEvent<T> {
-        let source: Observable<T> = itemSelected.flatMap { [weak view = self.base.collectionView] item -> Observable<T> in
-            guard let view = view else { return Observable.empty() }
-            return Observable.just(try view.rx.model(at: IndexPath(item: item, section: 0)))
-        }
-        return ControlEvent(events: source)
+        return base.collectionView.rx.modelSelected(modelType)
     }
     
     var itemScrolled: ControlEvent<Int> {
