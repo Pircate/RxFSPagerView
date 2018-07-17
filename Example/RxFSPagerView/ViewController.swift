@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         pagerView.isInfinite = true
         pagerView.automaticSlidingInterval = 2
         pagerView.itemSize = view.bounds.size
-        debugPrint(pagerView.itemSize)
         pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "FSPagerViewCell")
         view.addSubview(pagerView)
         
@@ -32,8 +31,8 @@ class ViewController: UIViewController {
             cell.imageView?.image = #imageLiteral(resourceName: "Image")
         }.disposed(by: disposeBag)
         
-        pagerView.rx.itemSelected.subscribe(onNext: { (indexPath) in
-            debugPrint(indexPath)
+        pagerView.rx.itemSelected.subscribe(onNext: { index in
+            debugPrint(index)
         }).disposed(by: disposeBag)
         
         pagerView.rx.modelSelected(String.self).subscribe(onNext: { text in
