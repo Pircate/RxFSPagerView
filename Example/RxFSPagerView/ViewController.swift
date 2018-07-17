@@ -29,10 +29,10 @@ class ViewController: UIViewController {
         let pageControl = FSPageControl(frame: CGRect(x: 0, y: view.bounds.height - 60, width: view.bounds.width, height: 30))
         view.addSubview(pageControl)
         
-        let items = Driver.of(["0", "1", "2", "3"])
+        let items = Driver.of(["image0", "image1", "image2", "image3"])
         items.drive(pagerView.rx.items(cellIdentifier: "FSPagerViewCell"))
         { _, item, cell in
-            cell.imageView?.image = #imageLiteral(resourceName: "Image")
+            cell.imageView?.image = UIImage(named: item)
         }.disposed(by: disposeBag)
         items.map({ $0.count }).drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
         
@@ -40,8 +40,8 @@ class ViewController: UIViewController {
             debugPrint(index)
         }).disposed(by: disposeBag)
         
-        pagerView.rx.modelSelected(String.self).subscribe(onNext: { text in
-            debugPrint(text)
+        pagerView.rx.modelSelected(String.self).subscribe(onNext: { image in
+            debugPrint(image)
         }).disposed(by: disposeBag)
         
         pagerView.rx.itemScrolled.asDriver().drive(pageControl.rx.currentPage).disposed(by: disposeBag)
