@@ -20,6 +20,27 @@ it, simply add the following line to your Podfile:
 pod 'RxFSPagerView'
 ```
 
+## Usage
+
+```swift
+let items = Driver.of(["0", "1", "2", "3"])
+items.drive(pagerView.rx.items(cellIdentifier: "FSPagerViewCell"))
+{ _, item, cell in
+    cell.imageView?.image = #imageLiteral(resourceName: "Image")
+}.disposed(by: disposeBag)
+items.map({ $0.count }).drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
+
+pagerView.rx.itemSelected.subscribe(onNext: { index in
+    debugPrint(index)
+}).disposed(by: disposeBag)
+
+pagerView.rx.modelSelected(String.self).subscribe(onNext: { text in
+    debugPrint(text)
+}).disposed(by: disposeBag)
+
+pagerView.rx.itemScrolled.asDriver().drive(pageControl.rx.currentPage).disposed(by: disposeBag)
+```
+
 ## Author
 
 Pircate, gao497868860@163.com
