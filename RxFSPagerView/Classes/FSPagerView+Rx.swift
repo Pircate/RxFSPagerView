@@ -29,9 +29,17 @@ public extension Reactive where Base: FSPagerView {
                 return self.base.collectionView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)(source)
             }
     }
+}
+
+public extension Reactive where Base: FSPagerView {
     
     var itemSelected: ControlEvent<Int> {
         let source = base.collectionView.rx.itemSelected.map { $0.item % self.base.numberOfSections }
+        return ControlEvent(events: source)
+    }
+    
+    var itemDeselected: ControlEvent<Int> {
+        let source = base.collectionView.rx.itemDeselected.map { $0.item % self.base.numberOfSections }
         return ControlEvent(events: source)
     }
     
@@ -50,6 +58,15 @@ public extension Reactive where Base: FSPagerView {
             return Observable.never()
         })
         return ControlEvent(events: source)
+    }
+}
+
+public extension Reactive where Base: FSPagerView {
+    
+    func deselectItem(animated: Bool) -> Binder<Int> {
+        return Binder(base) { this, item in
+            this.collectionView.deselectItem(at: IndexPath(item: item, section: 0), animated: animated)
+        }
     }
 }
 
