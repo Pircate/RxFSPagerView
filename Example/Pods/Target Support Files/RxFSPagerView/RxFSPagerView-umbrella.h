@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "FSPagerViewObjcCompat.h"
 
 FOUNDATION_EXPORT double RxFSPagerViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char RxFSPagerViewVersionString[];

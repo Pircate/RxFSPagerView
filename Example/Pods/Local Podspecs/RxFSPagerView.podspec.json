@@ -14,16 +14,15 @@
     "git": "https://github.com/Pircate/RxFSPagerView.git",
     "tag": "0.1.0"
   },
+  "swift_versions": "5.2",
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "source_files": "RxFSPagerView/Classes/**/*",
   "dependencies": {
-    "RxSwift": [
-
-    ],
     "RxCocoa": [
 
     ]
-  }
+  },
+  "swift_version": "5.2"
 }

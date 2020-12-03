@@ -14,7 +14,7 @@ public extension Reactive where Base: FSPagerView {
         (cellIdentifier: String, cellType: Cell.Type = Cell.self)
         -> (_ source: O)
         -> (_ configureCell: @escaping (Int, S.Iterator.Element, Cell) -> Void)
-        -> Disposable where O.E == S {
+        -> Disposable where O.Element == S {
             base.collectionView.dataSource = nil
             return { source in
                 let source = source.map({ sequence -> S in
@@ -50,10 +50,10 @@ public extension Reactive where Base: FSPagerView {
     var itemScrolled: ControlEvent<Int> {
         let source = base.collectionView.rx.didScroll.flatMap({ _ -> Observable<Int> in
             guard self.base.numberOfSections > 0 else { return Observable.never() }
-            let currentPage = lround(Double(self.base.scrollOffset)) % self.base.numberOfSections
-            if currentPage != self.base.currentPage {
-                self.base.currentPage = currentPage
-                return Observable.just(currentPage)
+            let currentIndex = lround(Double(self.base.scrollOffset)) % self.base.numberOfSections
+            if currentIndex != self.base.currentIndex {
+                self.base.currentIndex = currentIndex
+                return Observable.just(currentIndex)
             }
             return Observable.never()
         })

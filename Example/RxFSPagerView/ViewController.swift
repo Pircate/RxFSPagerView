@@ -30,11 +30,10 @@ class ViewController: UIViewController {
         view.addSubview(pageControl)
         
         let items = Driver.of(["image0", "image1", "image2", "image3"])
-        items.drive(pagerView.rx.items(cellIdentifier: "FSPagerViewCell"))
-        { _, item, cell in
+        items.drive(pagerView.rx.items(cellIdentifier: "FSPagerViewCell")) { _, item, cell in
             cell.imageView?.image = UIImage(named: item)
         }.disposed(by: disposeBag)
-        items.map({ $0.count }).drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
+        items.map { $0.count }.drive(pageControl.rx.numberOfPages).disposed(by: disposeBag)
         
         pagerView.rx.itemSelected.subscribe(onNext: { index in
             debugPrint(index)

@@ -1,9 +1,8 @@
+platform :ios, '10.0'
 use_frameworks!
 
 target 'RxFSPagerView_Example' do
   pod 'RxFSPagerView', :path => '../'
-  pod 'RxSwift'
-  pod 'RxCocoa'
 
   target 'RxFSPagerView_Tests' do
     inherit! :search_paths
