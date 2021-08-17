@@ -19,18 +19,25 @@ public extension Reactive where Base: FSPagerView {
     where O.Element == S {
         base.collectionView.dataSource = nil
         return { source in
-            let source = source.map { sequence -> S in
+            let source = source.map { sequence -> [S.Element] in
                 let items = Array(sequence)
+                
+                let numberOfItems = Int(Int16.max)
+                self.base.numberOfItems = numberOfItems
+                
+                guard !items.isEmpty else {
+                    return []
+                }
+                
+                /// 用于计算 index
                 self.base.numberOfSections = items.count
                 
                 let shouldLoop = items.count > 1 || !self.base.removesInfiniteLoopForSingleItem
-                let max = self.base.isInfinite && shouldLoop ? Int8.max : 1
-                let actualItems: [S.Element] = (0..<max).lazy.reduce([]) { result, _ in
+                let max = self.base.isInfinite && shouldLoop ? numberOfItems / items.count : 1
+                
+                return (0..<max).lazy.reduce([]) { result, _ in
                     result + items
                 }
-                self.base.numberOfItems = actualItems.count
-                
-                return actualItems as! S
             }
             
             return self.base.collectionView.rx.items(

@@ -1,6 +1,6 @@
 {
   "name": "RxFSPagerView",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "summary": "A short description of RxFSPagerView.",
   "homepage": "https://github.com/Pircate/RxFSPagerView",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/Pircate/RxFSPagerView.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "swift_versions": "5.2",
   "platforms": {
